@@ -1,0 +1,141 @@
+@import '../../bower_components/bootstrap/less/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// Some Bootstrap variable overrides
+@font-family-base: 'Roboto', sans-serif;
+@body-bg: #FFF;
+@text-color: #000;
+@link-color: #BDBDBD;
+@link-hover-color: #141718;
+
+@navbar-default-bg: #3F51B5;
+@navbar-default-border: none;
+@navbar-default-color: #FFF;
+@navbar-default-brand-color: #FFF;
+@navbar-default-link-color: #FFF;
+@navbar-default-link-hover-color: #C5CAE9;
+@navbar-default-link-active-color: #FF4081;
+@navbar-default-link-active-bg: transparent;
+@navbar-default-toggle-border-color: transparent;
+@navbar-default-toggle-icon-bar-bg: #FFF;
+@navbar-default-toggle-hover-hover-bg: #FF4081;
+@navbar-default-toggle-hover-bg: transparent;
+
+@btn-primary-bg: #3F51B5;
+@btn-warning-bg: #FF4081;
+
+@label-success-bg: #3F51B5;
+@label-danger-bg: #FF4081;
+
+@navbar-item-width: 80px;
+
+.btn {
+  border-radius: 0px;
+}
+
+.navbar {
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+.navbar-fixed-top {
+  border-width: 0px;
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+
+  &:hover,
+  &:focus {
+    .icon-bar {
+      background-color: @navbar-default-toggle-hover-hover-bg;
+    }
+  }
+}
+
+.navbar-toggle {
+  @media (min-width: @grid-float-breakpoint) {
+    display: block;
+  }
+}
+
+.navbar-nav {
+  > .active > a {
+    &,
+    &:hover,
+    &:focus {
+      font-weight: bold;
+    }
+  }
+  & > li {
+    text-align: center;
+    width: @navbar-item-width;
+
+    /* Sliding menu highlighter class (last li element is used for this) */
+    &:last-child {
+      position: absolute;
+      bottom: 0px;
+      width: @navbar-item-width;
+      height: 5px;
+      background-color: #FF4081;
+
+      -webkit-transition: transform .3s; /* iOS, Safari */
+      transition: transform .3s;
+    }
+    .generate-active-transforms(10);
+  }
+}
+
+/* Generates sliding menu highlight selectors */
+.generate-active-transforms(@n, @i: 1) when (@i =< @n) {
+  &:nth-child(@{i}).active ~ li:last-child {
+    transform: translate3d((@i - 1) * @navbar-item-width, 0, 0);
+  }
+  &:nth-child(@{i}):hover ~ li:last-child {
+    transform: translate3d((@i - 1) * @navbar-item-width, 0, 0) !important;
+  }
+  .generate-active-transforms(@n, (@i + 1));
+}
+
+.has-value {
+  display: inline-block;
+  & .label-danger {
+    background-color: transparent;
+    color: #FF4081;
+  }
+  & .label-success {
+    background-color: transparent;
+    color: #3F51B5;
+  }
+}
+
+.img-quiz {
+  width: 100%;
+}
+
+.input-short-1 {
+  width: 50px;
+}
+
+.page-content {
+  margin-top: 50px;
+  padding-top: 15px;
+}
+
+.result-info {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.question-summary {
+  & > ul {
+    list-style-type: none;
+    & > li .glyphicon-remove {
+      opacity: 0.1;
+    }
+    & > li .glyphicon-ok {
+      color: #3F51B5;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>Quiz #1</h3>
+    <p>{{quiz.description}}</p>
+    <p>First please enter your name and your email address.</p>
+    <form>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="input_name">Your name <hasvalue value="quiz.user_name"></hasvalue></label>
+              <input id="input_name" type="text" class="form-control" placeholder="" ng-model="quiz.user_name" ng-change="change('user_name')"/>
+            </div>
+
+            <div class="form-group">
+              <label for="input_email">Email <hasvalue value="quiz.user_email"></hasvalue></label>
+              <input id="input_email" type="email" class="form-control" placeholder="" ng-model="quiz.user_email" ng-change="change('user_email')"/>
+            </div>
+          </div>
+          <div class="col-sm-5"></div>
+          <div class="col-sm-3">
+            <img ng-src="{{quiz.img}}" alt="speed-of-light" class="img-rounded img-quiz"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-left">
+        <button type="button" class="btn btn-warning" ng-click="reset()"><span class="glyphicon glyphicon-trash"></span> Reset quiz</button>
+      </div>
+      <div class="pull-right">
+        <button type="submit" class="btn btn-primary" ng-click="next()">Next <span class="glyphicon glyphicon-step-forward"></span></button>
+      </div>
+    </form>
+  </div>
+</div>

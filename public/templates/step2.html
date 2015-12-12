@@ -1,0 +1,58 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>Quiz #2</h3>
+    <p>Please provide an answer these questions</p>
+    <form>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group col-sm-6">
+            <label for="input_name">Question 1</label>
+            <answered question="quiz.questions[0]"></answered>
+            <p>{{quiz.questions[0].text}}</p>
+
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  {{quiz.questions[0].answer || 'Please select an answer'}}
+                  <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li ng-repeat="answer in quiz.questions[0].answers"><a ng-click="answerQuestion(0, answer)">{{answer}}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <img ng-src="{{quiz.questions[0].img}}" alt="speed-of-light" class="img-rounded img-quiz"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group col-sm-6">
+            <label>Question 2</label>
+            <answered question="quiz.questions[1]"></answered>
+            <p>{{quiz.questions[1].text}}</p>
+
+            <div class="radio" ng-repeat="answer in quiz.questions[1].answers">
+              <label>
+                <input type="radio" name="options_question_2" value="{{answer}}" ng-model="quiz.questions[1].answer" ng-change="answerQuestion(1, answer)">
+                {{answer}}
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <img ng-src="{{quiz.questions[1].img}}" alt="speed-of-light" class="img-rounded img-quiz"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-left">
+        <button type="button" class="btn btn-default" ng-click="previous()"><span class="glyphicon glyphicon-step-backward"></span> Previous</button>
+      </div>
+      <div class="pull-right">
+        <button type="button" class="btn btn-primary" ng-click="next()">Next <span class="glyphicon glyphicon-step-forward"></span></button>
+      </div>
+    </form>
+  </div>
+</div>

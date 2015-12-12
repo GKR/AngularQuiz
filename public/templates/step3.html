@@ -1,0 +1,54 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>Quiz #3</h3>
+    <p>Please provide an answer these questions</p>
+    <form>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group col-sm-6">
+            <label>Question 3</label>
+            <answered question="quiz.questions[2]"></answered>
+            <p>{{quiz.questions[2].text}}</p>
+
+            <div class="radio" ng-repeat="answer in quiz.questions[2].answers">
+              <label>
+                <input type="radio" name="options_question_3" value="{{answer}}" ng-model="quiz.questions[2].answer" ng-change="answerQuestion(2, answer)">
+                {{answer}}
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <img ng-src="{{quiz.questions[2].img}}" alt="speed-of-light" class="img-rounded img-quiz"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group col-sm-6">
+            <label>Question 4</label>
+            <answered question="quiz.questions[3]"></answered>
+            <p>{{quiz.questions[3].text}}</p>
+
+            <div class="checkbox" ng-repeat="answer in quiz.questions[3].answers">
+              <label>
+                <input type="checkbox" name="options_question_4" value="{{answer}}" ng-model="questions[3][answer.id]" ng-change="answerUpdateQuestionMultiple(3, answer.id)">
+                {{answer.text}}
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <img ng-src="{{quiz.questions[3].img}}" alt="speed-of-light" class="img-rounded img-quiz"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-left">
+        <button type="button" class="btn btn-default" ng-click="previous()"><span class="glyphicon glyphicon-step-backward"></span> Previous</button>
+      </div>
+      <div class="pull-right">
+        <button type="button" class="btn btn-primary" ng-click="next()">Next <span class="glyphicon glyphicon-step-forward"></span></button>
+      </div>
+    </form>
+  </div>
+</div>

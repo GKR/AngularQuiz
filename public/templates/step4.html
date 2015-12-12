@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>Results</h3>
+    <p>This is a summary of your results.</p>
+
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+          <p ng-if="quiz.user_name" class="form-control-static">{{quiz.user_name}}</p>
+          <p ng-if="!quiz.user_name" class="form-control-static"><i>&lt;Please enter your name in "Step 1"&gt;</i></p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <p ng-if="quiz.user_email" class="form-control-static">{{quiz.user_email}}</p>
+          <p ng-if="!quiz.user_email" class="form-control-static"><i>&lt;Please enter your email in "Step 1"&gt;</i></p>
+        </div>
+      </div>
+
+      <div>
+        <div class="col-sm-2"></div>
+        <div ng-if="!quizSummary.all_answered" class="col-sm-10 result-info">
+          <h3>Please answer all of the questions before we can show you the quiz summary.</h3>
+        </div>
+        <div ng-if="quizSummary.all_answered" class="col-sm-10 result-info">
+          <h3>You answered {{quizSummary.correctQuestionCount}} of {{quizSummary.questions.length}} question correctly.</h3>
+        </div>
+      </div>
+
+      <div ng-if="quizSummary.all_answered" class="form-group" ng-repeat="question in quizSummary.questions">
+        <label class="col-sm-2 control-label">Question {{$index + 1}}</label>
+        <div class="col-sm-10 question-summary">
+          <p class="form-control-static">{{question.text}}</p>
+          <ul>
+            <li ng-repeat="answer in question.answers">
+              <span ng-if="answer.correct_answer" class="glyphicon glyphicon-ok"></span>
+              <span ng-if="!answer.correct_answer" class="glyphicon glyphicon-remove"></span>
+              {{answer.value}}
+              <span ng-if="answer.selected_answer" class="label label-success">Your answer</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pull-left">
+        <button type="button" class="btn btn-default" ng-click="previous()"><span class="glyphicon glyphicon-step-backward"></span> Previous</button>
+      </div>
+    </form>
+  </div>
+</div>
