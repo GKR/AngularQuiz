@@ -4,9 +4,9 @@ A simple quiz application written using AngularJS.
 ## Demo
 <a href="http://www.kriik.com/ng-quiz" target="_blank">Try out the demo here</a>
 
+![Screenshot](public/img/screenshot_001.png "Screenshot")
+
 ## Installation / building
-* Download nodejs
-* Download npm
 
     npm install
     gulp
