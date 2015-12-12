@@ -13,4 +13,4 @@ A simple quiz application written using AngularJS.
     npm run test
     npm start
 
-The local test server is then started on URL: ![link to local server](http://localhost:3000)
+The local test server is then started on URL: [link to local server](http://localhost:3000)
