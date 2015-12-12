@@ -7,7 +7,7 @@ A simple quiz application written using AngularJS.
 ## Installation / building
  * Download nodejs
  * Download npm
- * Execute:
+
 
     npm install
     gulp
