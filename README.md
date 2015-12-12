@@ -2,7 +2,7 @@
 A simple quiz application written using AngularJS.
 
 ## Demo
-[Try out the demo here](https://www.kriik.com/ng-quiz)
+<a href="http://www.kriik.com/ng-quiz" target="_blank">Try out the demo here</a>
 
 ## Installation / building
  * Download nodejs
