@@ -1,7 +1,10 @@
-# Science quiz demo app using AngularJS
+## Science Quiz App Using AngularJS
 A simple quiz application written using AngularJS.
 
-# Installation / building
+## Demo
+[Try out the demo here](https://www.kriik.com/ng-quiz)
+
+## Installation / building
  * Download nodejs
  * Download npm
  * Execute:
