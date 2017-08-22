@@ -99,9 +99,13 @@ app.factory('QuizService', function() {
           } else if(question.type === 'multiple') {
             var correct_answer = ((question.correct_answer_bitmask & answer.id) === answer.id);
             var selected_answer = ((question.answer & answer.id) === answer.id);
-            if(correct_answer && !selected_answer) {
+
+            if(correct_answer && !selected_answer) { // Right question not checked
+              questionSummary.correct = false;
+            } else if(!correct_answer && selected_answer) { // Wrong question checked
               questionSummary.correct = false;
             }
+            
             questionSummary.answers.push({value: answer.text, correct_answer: correct_answer, selected_answer: selected_answer});
           }
         }, this);

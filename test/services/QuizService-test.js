@@ -62,6 +62,35 @@ describe('QuizService tests', function (){
     expect(quiz.questions[qIndex].answer).toBe(2 | 4);
   });
 
+  it('should set return the correct quiz answer summary, if all correctly checked (multiple)', function () {
+    var qIndex = 3;
+    var quiz = QuizService.getQuiz();
+    expect(quiz.questions[qIndex].answer).toBe(0);
+
+    QuizService.updateQuizAnswerMultiple(qIndex, 2);
+    QuizService.updateQuizAnswerMultiple(qIndex, 8);
+    QuizService.updateQuizAnswerMultiple(qIndex, 16);
+    QuizService.updateQuizAnswerMultiple(qIndex, 64);
+
+    var summary = QuizService.getQuizSummary();
+    expect(summary.correctQuestionCount).toBe(1);
+  });
+
+  it('should set return the correct quiz answer summary, if all correctly checked, but some incorrectly checked too (multiple)', function () {
+    var qIndex = 3;
+    var quiz = QuizService.getQuiz();
+    expect(quiz.questions[qIndex].answer).toBe(0);
+
+    QuizService.updateQuizAnswerMultiple(qIndex, 1);
+    QuizService.updateQuizAnswerMultiple(qIndex, 2);
+    QuizService.updateQuizAnswerMultiple(qIndex, 8);
+    QuizService.updateQuizAnswerMultiple(qIndex, 16);
+    QuizService.updateQuizAnswerMultiple(qIndex, 64);
+
+    var summary = QuizService.getQuizSummary();
+    expect(summary.correctQuestionCount).toBe(0);
+  });
+
   it('should set and unset the quiz answer correctly (multiple)', function () {
     var qIndex = 3;
     var quiz = QuizService.getQuiz();
